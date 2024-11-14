@@ -1,1 +1,9 @@
-Hellooooo
+cambiare pagina con un pulsante / cliccare su una scritta
+
+<a>anchor name</a>
+
+to add a link for the text: 
+
+<a href="link"> apre la nuova pagina al posto di quella che si sta usando </a>
+
+<a href="link" target
