@@ -9,12 +9,20 @@ submit.onclick = function()
 {
     let input = Number(document.getElementById("input").value)
 
-    for ( let i = numbers.length; i >= 0; i--)
-    {
-        if (numbers[i] - input <= buffer[i])
+    for ( let i = numbers.length; i >= 0 && input != 0; i--)
+    { 
+        while(numbers[i] - input <= 0)
         {
-            sequence += symbols[i - 1] + symbols[i]
+            sequence += symbols[i];
+            input -= numbers[i];
         }
-
+        
+        if(numbers[i] - input <= buffer[i])
+        {
+            let ind = numbers.indexOf(buffer[i]);
+            sequence += symbols[ind] + symbols[i];
+            input -= (numbers[i] - buffer[i]);
+        } 
     }
+    result.innerHTML = sequence   
 }

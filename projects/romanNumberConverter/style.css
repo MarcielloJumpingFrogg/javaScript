@@ -1,7 +1,16 @@
 body {
     background-color: rgb(6, 6, 54);
-    text-align: center;
+/*     text-align: center; */
     color: white;
+}
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 div {
@@ -12,12 +21,9 @@ div {
 
 }
 
+
 .box{
-    display: block;
-    left: 50%;
-    top: 50%;
-    position: fixed;
-    transform: translate(-50%, -50%);
+    
     text-align: center;
     padding: 30px;
 }

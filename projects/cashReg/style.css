@@ -1,0 +1,51 @@
+body{
+    background-color: darkgrey; /* TEMPORANEO */
+}
+
+.navBar {
+    display: flex;
+    position: fixed;
+    flex-direction: column; 
+    align-items: stretch;
+    justify-content: space-evenly;
+    width: 10%;
+    height: 80%;
+    background-color: lightblue; /* TEMP */
+    
+
+}
+
+.navBar button{
+    display: block;
+    background-color: lightcoral;
+    font-size: 1.1rem;
+    flex-grow: 1;   /* makes the objects fill the space */
+}
+
+.menu {
+    position: fixed;
+    display: flex;
+    background-color: aquamarine;
+    left: 15%;
+    width: 50%;
+    height: 80%;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-content: start;
+    
+
+
+}
+
+.menu button { 
+    margin: 10px;
+    flex-grow: 1; 
+    font-size: 1.4rem;
+    height: 100px;
+    width: 150px;
+    
+}
+
+.menu button i {
+    font-size: 1rem;
+}
