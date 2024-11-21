@@ -2,38 +2,56 @@ body{
     background-color: darkgrey; /* TEMPORANEO */
 }
 
-.navBar {
+.page { 
+    display: flex; 
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 100vw;
+    height: 100vh; 
+}
+
+header {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: lightblue;    /* temp */
+}
+
+.navBar { 
+    left: 0%;
+    order: 0;
     display: flex;
-    position: fixed;
+    position: relative;
     flex-direction: column; 
-    align-items: stretch;
-    justify-content: space-evenly;
-    width: 10%;
-    height: 80%;
-    background-color: lightblue; /* TEMP */
+    width: auto;
+    height: 80%; 
+    justify-content: center;
     
 
 }
 
 .navBar button{
     display: block;
-    background-color: lightcoral;
-    font-size: 1.1rem;
-    flex-grow: 1;   /* makes the objects fill the space */
+    background-color: lightcoral; /* temp */
+    height: 150px;
+    width: 150px;
+    font-size: 1.1rem; 
 }
 
 .menu {
-    position: fixed;
+    order: 1;
+    position: relative;
     display: flex;
-    background-color: aquamarine;
-    left: 15%;
-    width: 50%;
+    background-color: aquamarine;  
     height: 80%;
     flex-wrap: wrap;
     padding: 10px;
     align-content: start;
-    
-
+    flex-grow: 1; 
 
 }
 
@@ -48,4 +66,51 @@ body{
 
 .menu button i {
     font-size: 1rem;
+}
+
+.interface {
+    order: 2; 
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    align-content: start;
+    height: 80%;
+    min-width: 320px;
+    background-color: lightgreen;
+    position: relative;
+    padding: 10px;
+}
+
+.history{
+    order: 0;
+    /* position: relative; */
+    display: list-item;
+    list-style: none; 
+    background-color: white;
+    color: black;
+    height: 60%;
+    width: 100%;
+    font-size: 1rem;
+    
+}
+
+#total {
+    order: 1;
+    width: 100%;
+    background-color: grey;
+    /* display: block; */
+    
+    /* bottom: -5%; */
+
+}
+
+.history i {
+    
+    margin-right: 10px;
+    position: absolute;
+    right: 20px;
+}
+
+.history li { 
+    padding: 10px; 
 }
