@@ -12,50 +12,59 @@
 
 <div class="page">
     <nav class="navBar">
-        <button id="caffe">Caffetteria</button>
-        <button id="dolci">Dolci</button>
-        <button id="panini">Panini</button>
+        <button id="caffePulsante">Caffetteria</button>
+        <button id="dolciPulsante">Dolci</button>
+        <button id="paniniPulsante">Panini</button>
     </nav>
-    <div class="caffetteria menu">
+    <div class="caffetteria menu" id="caffetteria">
     
         <button id="espresso" value="Caffe Gran Espresso<i>1.40</i>" >espresso <br><i>1.40</i></button>
         <button id="macchiato" value="Caffe macchiato <i>1.40</i>">macchiato <br><i>1.40</i></button>
         <button id="cappuccino" value="Cappuccino <i>2.00</i>">cappuccino <br><i>2.00</i></button>
-        <button id="americano">americano <br><i>2.00</i></button>
-        <button id="cappuccino_soia">cappuccino soia <br><i>2.20</i></button>
-        <button id="cappuccino_maxi">cappuccino maxi<br><i>2.30</i></button>
-        <button id="cappuccino_maxi_soia">cappuccino maxi soia <br><i>2.50</i></button>
-        <button id="latte_macchiato">latte macchiato<br><i>2.30</i></button>
-        <button id="latte_macchiato_soia">latte macchiato soia <br><i>2.50</i></button>
-        <button id="deca">deca <br><i>1.60</i></button> 
+        <button id="americano" value="Americano <i>2.00</i>">americano <br><i>2.00</i></button>
+        <button id="cappuccino_soia" value="Cappuccino soia <i>2.20</i>">cappuccino soia <br><i>2.20</i></button>
+        <button id="cappuccino_maxi" value="Maxi Cappuccino <i>2.30</i>">cappuccino maxi<br><i>2.30</i></button>
+        <button id="cappuccino_maxi_soia" value="Maxi soia cappuccino <i>2.50</i>">cappuccino maxi soia <br><i>2.50</i></button>
+        <button id="latte_macchiato" value="Latte Macchiato <i>2.30</i>">latte macchiato<br><i>2.30</i></button>
+        <button id="latte_macchiato_soia" value="Latte Macchiato Soia <i>2.50</i>">latte macchiato soia <br><i>2.50</i></button>
+        <button id="deca" value="Deca espresso <i>1.60</i>">deca <br><i>1.60</i></button> 
     </div>
+
+    <div class="dolci menu hide" id="dolci">
+        <button id="briocheCrema">Brioche crema <br><i>1.80</i></button>
+        <button id="briocheAlbicocca">Brioche albicocca <br><i>1.80</i></button>
+        <button id="briocheFruttiBosco">Brioche frutti di bosco <br><i>1.80</i></button>
+        <button id="briocheVuota">Brioche vuota <br><i>1.60</i></button>
+        <button id="muffinMela">Muffin mela <br><i>2.90</i></button>
+    </div>
+
     
     <div class="interface" id="interface">
         <div class="history" id="history">
             <ul>
                 
             </ul>
-            <p id="total">0.00$</p>
         </div>
+        <p id="total">0.00$</p>
     </div>
 </div>
 
 
     
     <!-- 
-
-    1) side bar with "nav buttons"
+    ~~  1) side bar with "nav buttons" ~~~  
     2) nav buttons that change the display of what i am looking at
     3) load the corresponding page with the articles
-    4) each article has a unique price
-    5) create a list of items to be paid
-    6) the list displays the price of each article and the total
+    ~~ 4) each article has a unique price ~~
+    ~~5) create a list of items to be paid<~~
+    ~~6) the list displays the price of each article and the total<~~
     7) the pay button that brings you to the final page
     8) choose payment method 
     9) print on screen the "receipt"
     10) save the daily total 
     11) send to default initial page 
     12) a button to disable stuff that is finished
+    13) add the menu with choose options && auto group menu
 
     -->
 

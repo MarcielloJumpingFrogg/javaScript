@@ -59,7 +59,8 @@ header {
     margin: 10px;
     flex-grow: 1; 
     font-size: 1.4rem;
-    height: 100px;
+    min-height: 100px;
+    height: auto;
     width: 150px;
     
 }
@@ -114,3 +115,9 @@ header {
 .history li { 
     padding: 10px; 
 }
+
+
+.hide {
+    display: none;
+}
+
