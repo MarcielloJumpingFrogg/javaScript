@@ -45,7 +45,6 @@ header {
 .menu {
     order: 1;
     position: relative;
-    display: flex;
     background-color: aquamarine;  
     height: 80%;
     flex-wrap: wrap;
@@ -84,7 +83,7 @@ header {
 
 .history{
     order: 0;
-    /* position: relative; */
+    position: relative;
     display: list-item;
     list-style: none; 
     background-color: white;
@@ -92,6 +91,8 @@ header {
     height: 60%;
     width: 100%;
     font-size: 1rem;
+    overflow-y: scroll;
+    
     
 }
 
@@ -105,15 +106,22 @@ header {
 
 }
 
+
 .history i {
     
     margin-right: 10px;
     position: absolute;
-    right: 20px;
+    right: 20px; 
+    overflow: hidden;
 }
 
 .history li { 
     padding: 10px; 
+} 
+
+
+.show {
+    display: flex;
 }
 
 
