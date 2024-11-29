@@ -3,6 +3,9 @@ let history =[]
 let totalToPay = 0;
 const totalDisplay = document.getElementById('total');
 
+
+const payButton = document.getElementById('payTotal')
+
 const buttonPress = document.querySelectorAll('.article');  // only chooses the elements with the class = "article" 
 
 
@@ -52,7 +55,14 @@ for ( i of buttonPress)
 
 
 
+payButton.onclick = function()
+{ 
+  const payPage = document.getElementById('payment')
+  const payTotal = document.getElementById('historyPayment')
 
+  payPage.classList.toggle('hide');
+  payPage.classList.toggle('show'); 
+}
 
 
 
@@ -122,36 +132,4 @@ for ( i of buttonPress)
                                                   <3        <3
                                                     <3    <3
                                                       <3<3
-*/                                              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/ 

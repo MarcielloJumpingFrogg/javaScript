@@ -10,11 +10,11 @@
 
     <header><h1>Cash Register</h1></header>
 
-<div class="page">
+<div class="page" id="page">
     <nav class="navBar">
         <button id="btn0" class="menuButton">Caffetteria</button>
         <button id="btn1" class="menuButton">Dolci</button>
-        <button id="btn2" class="menuButton">Panini</button>
+        <button id="btn2" class="menuButton">Panini</button> 
     </nav>
     <div class="caffetteria menu show" id="menu0">
     
@@ -51,15 +51,27 @@
         </div>
         <p id="total">0.00$</p>
     </div>
+    <button id="payTotal">pay total</button>
+
 </div>
 
+<div class="payment hide" id="payment">
+    <div class="interface" id="interfacePayment">
+        <div class="history" id="historyPayment">
+            <ul>
+                
+            </ul>
+        </div>
+        <p id="total">0.00$</p>
+    </div>
+</div>
 
     
     <!-- 
-    ~~  1) side bar with "nav buttons" ~~~  
+    ~~1) side bar with "nav buttons" ~~~  
     ~~2) nav buttons that change the display of what i am looking at~~
     ~~3) load the corresponding page with the articles~~
-    ~~ 4) each article has a unique price ~~
+    ~~4) each article has a unique price ~~
     ~~5) create a list of items to be paid<~~
     ~~6) the list displays the price of each article and the total<~~
     7) the pay button that brings you to the final page
