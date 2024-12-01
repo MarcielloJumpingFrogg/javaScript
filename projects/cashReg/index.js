@@ -14,7 +14,7 @@ let menuButton = document.querySelectorAll('.menuButton');   // selects items wi
 
 let menuSections = document.querySelectorAll('.menu');      // selects all the items with the 'menu' class
 
-
+/*                                  //reso commento perché non ci sono i pultsanti per avere la funzione
 for (i of menuButton)       //selects all the buttons from the navBar section
 {
     i.addEventListener('click', function()  //makes all the elements invisible 
@@ -28,11 +28,11 @@ for (i of menuButton)       //selects all the buttons from the navBar section
     menuSections[pressed].classList.add('show')     //makes only the menu associated with the button that is pressed visible
     menuSections[pressed].classList.remove('hide')
 })
-}
+} */
 
 
-
-for ( i of buttonPress)
+/* 
+for ( i of buttonPress)     //reso commento perché non ci sono i pultsanti per avere la funzione
 {
     i.addEventListener('click', function()
     { 
@@ -51,7 +51,7 @@ for ( i of buttonPress)
     }
     )
 }
-
+ */
 
 
 
@@ -64,20 +64,59 @@ payButton.onclick = function()
   payPage.classList.toggle('show'); 
 }
 
+/* 
+fetch('./articles.json')
+  .then(res => res.json())  //makes the value readable since it's json and not js 
+  .then(data => {           // idk it's making it into a readable file i guess, the important thing is i have the data 
+    const bleh = data[0].juicebar.caffetteria
+    Object.keys(data[0].juicebar.caffetteria).forEach(element => { 
+      const menu0 = document.getElementById('menu0')
+      const createButton = document.createElement("button")
+      let thing = bleh.element.name
+      let val = thing
+      createButton.innerHTML = val
+      menu0.appendChild(createButton)
+
+      
+    });
+  })
+
+ */ 
 
 
 
+async function fillPage() 
+{
+  const requestUrl = './articles.json';
+  const request = new Request (requestUrl);
+  
+  const response = await fetch (request);
+  const sections = await response.json();
+
+  buttons(sections[0])
+
+}
+
+
+function buttons(obj)
+{
+  const menu0 = document.getElementById('menu0')
+  const myButton = document.createElement('button')
+  const caffe = obj.caffetteria
+
+  for( let caf in caffe)
+  {
+    console.log(caffe[0])
+  }
+
+  myButton.textContent = caffe.name 
+  console.log(caffe.name)
+  menu0.appendChild(myButton)
+}
 
 
 
-
-
-
-
-
-
-
-
+fillPage()
 
 
 

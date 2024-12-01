@@ -1,0 +1,27 @@
+[
+    {
+        
+        "caffetteria" : 
+        [
+            {
+                "espresso" : 
+                {
+                    "name" : "Caffe Gran espresso Lavazza",
+                    "price" : 1.40,
+                    "menu" : "juicyMenu"
+                },
+                "macchiato" : 
+                {
+                    "name" : "Caffe Macchiato",
+                    "price" : 1.40,
+                    "menu" : "juicyMenu"
+                }
+            }
+        ], 
+        "tranci" : {
+            "name" : "margherita",
+            "price" : 4.80
+        }
+        
+    }
+]
