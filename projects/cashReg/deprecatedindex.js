@@ -1,3 +1,12 @@
+/* 
+
+    I will keep this code in case everything goes wrong (it probably will)
+
+*/
+
+
+
+
 const historyDisplay = document.getElementById('history');
 let history =[]
 let totalToPay = 0;
@@ -72,10 +81,10 @@ async function fillPage()   // gets the informations from the json and transmits
   const request = new Request (requestUrl);
   
   const response = await fetch (request);
-  const sections = await response.json(); 
-  for (const el in sections) 
+  const sections = await response.json();
+  console.log("this is ", sections)
+  for (const el in sections)
   {
-    console.log("acgtul lenght= ", sections)
     buttons(sections[el])
   }
 
@@ -86,15 +95,14 @@ async function fillPage()   // gets the informations from the json and transmits
 function buttons(obj)
 {
 //  console.log("obj.sectionName = ", obj.sectionName)  
-console.log("len = ", obj.lenght)
+
   for (let i in obj)
   { 
     if (i == "sectionName")
     {
       //console.log("this is the name ", obj[i])    // this becomes the nav bar buttons
       const myNavBarButton = document.createElement('button');
-
-
+      
 
     }
     else{
