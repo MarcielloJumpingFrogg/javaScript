@@ -4,19 +4,24 @@
         "caffetteria" : 
         [
             {
-                "espresso" : 
-                {
-                    "name" : "Caffe Gran espresso Lavazza",
-                    "price" : 1.40,
-                    "menu" : "juicyMenu"
-                },
-                "macchiato" : 
-                {
-                    "name" : "Caffe Macchiato",
-                    "price" : 1.40,
-                    "menu" : "juicyMenu"
-                }
+                "button" : "espresso",
+                "name" : "Caffe Gran espresso Lavazza",
+                "price" : 1.40,
+                "menu" : "juicyMenu"
+            },
+            {
+                "button" : "macchiato",
+                "name" : "Caffe Macchiato",
+                "price" : 1.40,
+                "menu" : "juicyMenu"
+            },
+            {
+                "button" : "Cappucino-maxi-soia",
+                "name" : "maxi-capp-soia",
+                "price" : "bacino",
+                "menu" : "breakFastDate"
             }
+            
         ], 
         "tranci" : {
             "name" : "margherita",

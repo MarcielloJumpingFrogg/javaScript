@@ -100,18 +100,18 @@ async function fillPage()
 
 function buttons(obj)
 {
-  const menu0 = document.getElementById('menu0')
-  const myButton = document.createElement('button')
   const caffe = obj.caffetteria
-
-  for( let caf in caffe)
-  {
-    console.log(caffe[0])
+  
+  for( const i in caffe)
+    {
+      const myButton = document.createElement('button')
+      const menu0 = document.getElementById('menu0')
+      console.log(caffe[i].button)
+      myButton.innerHTML = caffe[i].button + " <br><i> " + caffe[i].price
+      menu0.appendChild(myButton)
   }
 
-  myButton.textContent = caffe.name 
-  console.log(caffe.name)
-  menu0.appendChild(myButton)
+  //console.log(caffe)
 }
 
 
@@ -119,7 +119,37 @@ function buttons(obj)
 fillPage()
 
 
+/* 
+[
+    {
+        
+        "caffetteria" : 
+        [
+            {
+                "espresso" : 
+                {
+                    "name" : "Caffe Gran espresso Lavazza",
+                    "price" : 1.40,
+                    "menu" : "juicyMenu"
+                },
+                "macchiato" : 
+                {
+                    "name" : "Caffe Macchiato",
+                    "price" : 1.40,
+                    "menu" : "juicyMenu"
+                }
+            }
+        ], 
+        "tranci" : {
+            "name" : "margherita",
+            "price" : 4.80
+        }
+        
+    }
+]
 
+
+*/
 
 
 
