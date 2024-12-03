@@ -1,12 +1,3 @@
-/* 
-
-    I will keep this code in case everything goes wrong (it probably will)
-
-*/
-
-
-
-
 const historyDisplay = document.getElementById('history');
 let history =[]
 let totalToPay = 0;
@@ -17,6 +8,7 @@ const payButton = document.getElementById('payTotal')
 
 const buttonPress = document.querySelectorAll('.article');  // only chooses the elements with the class = "article" 
 
+const navBar = document.getElementById("navBar")
 
 
 let menuButton = document.querySelectorAll('.menuButton');   // selects items with the 'menubutton' class, filtering the type of buttons it takes 
@@ -26,9 +18,9 @@ let menuSections = document.querySelectorAll('.menu');      // selects all the i
 /*                                  //reso commento perché non ci sono i pultsanti per avere la funzione
 for (i of menuButton)       //selects all the buttons from the navBar section
 {
-    i.addEventListener('click', function()  //makes all the elements invisible 
+    i.addEventListener('click', function()   
 {
-    menuSections.forEach(element => { 
+    menuSections.forEach(element => {       //makes all the elements invisible
         element.classList.remove('show');
         element.classList.add('hide');
     }); 
@@ -81,10 +73,10 @@ async function fillPage()   // gets the informations from the json and transmits
   const request = new Request (requestUrl);
   
   const response = await fetch (request);
-  const sections = await response.json();
-  console.log("this is ", sections)
-  for (const el in sections)
+  const sections = await response.json(); 
+  for (const el in sections) 
   {
+    console.log("acgtul lenght= ", sections)
     buttons(sections[el])
   }
 
@@ -95,19 +87,29 @@ async function fillPage()   // gets the informations from the json and transmits
 function buttons(obj)
 {
 //  console.log("obj.sectionName = ", obj.sectionName)  
+  console.log("len = ", obj.lenght)
+  let counter = 0;
 
-  for (let i in obj)
+  for (let i in obj)    // i is for the outside, in this case it will consider the different "areas" with a different sectionName, and will use it to create the buttons
   { 
     if (i == "sectionName")
     {
       //console.log("this is the name ", obj[i])    // this becomes the nav bar buttons
       const myNavBarButton = document.createElement('button');
+      myNavBarButton.innerHTML = obj.sectionName;
+      myNavBarButton.classList.add("menuButton")  //add the classlist
+      myNavBarButton.setAttribute("id" , "btn" + counter)    //add the id
+      navBar.appendChild(myNavBarButton)
+      counter++;
+
       
 
+
     }
-    else{
+    if(i == "items")
+    {
       console.log("obj = ",obj[i])
-      for (const j in obj[i])
+      for (const j in obj[i])   //j is already inside the sections, which means that is using a loop inside it and getting informations about every item
       {
         console.log("obj[j] = ",obj[i][j].button)
       }
@@ -120,7 +122,7 @@ function buttons(obj)
 
 
 
-  /* const caffe = obj
+  /* const caffe = obj    //almost failed attempt i guess
   
   for( const i in caffe)
     {

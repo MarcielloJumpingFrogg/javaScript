@@ -1,32 +1,44 @@
 [ 
+    {
+    "caffetteria" :
         {
-            "sectionName" : "caffetteria", 
+            "store" : ["juiceBar"],
             "items" : 
             [
                 {
-                    "button" : "espresso",
-                    "name" : "Caffe Gran espresso Lavazza",
-                    "price" : 1.40,
-                    "menu" : "juicyMenu"
+                    "espresso" : 
+                    {
+                        "name" : "Caffe Gran espresso Lavazza",
+                        "price" : 1.40,
+                        "menu" : "juicyMenu"
+                    }
+                }, 
+                {
+                    "macchiato" : 
+                    {
+                        "name" : "Caffe Macchiato",
+                        "price" : 1.40,
+                        "menu" : "juicyMenu"
+                    }
                 },
                 {
-                    "button" : "macchiato",
-                    "name" : "Caffe Macchiato",
-                    "price" : 1.40,
-                    "menu" : "juicyMenu"
-                },
-                {
-                    "button" : "Cappucino-maxi-soia",
-                    "name" : "maxi-capp-soia",
-                    "price" : "bacino",
-                    "menu" : "breakFastDate"
+                    "cappuccino-maxi-soia" : 
+                    {
+                        "name" : "maxi-capp-soia",
+                        "price" : "bacino",
+                        "menu" : "breakFastDate"
+                    } 
                 }
-
             ]
-        },
+        }
+    },
+        
+    {
+    "tranci" : 
         {
-            "sectionName" : "tranci",
-            "items" : [
+            "store" : ["caio"],
+            "items" : 
+            [
                 {
                     "button" : "margherita",
                     "price" : 4.80
@@ -37,4 +49,22 @@
                 }
             ]
         } 
+    },
+    {
+        "bibite" :
+        {
+            "store": ["juiceBar", "caio"],
+            "items" :
+            {
+                "acqua 0.5l nat" : 
+                {
+                    "price" : 1.60 
+                },
+                "acqua 0.5l friz" :
+                {
+                    "price" : 2.10
+                }
+            }
+        }
+    }
 ]
