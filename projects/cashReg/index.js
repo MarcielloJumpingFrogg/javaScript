@@ -51,10 +51,15 @@ function getStores(navElement)
       let loc = navElement[i].store 
       if (stores.includes(loc[content]) == false)
       {
+        console.log("loc[content", loc[content])
         stores.push(loc[content])
         //creo un div e una navBar a seconda del caso in questione
 
-        createStoreDiv(loc[content])
+        createStoreButton(loc[content])    //ho creato il div ma ora mi serve per inserire gli oggetti al suo interno
+        // ma allo stesso tempo mi serve il navElement = al nome del tasto che mi servirá per la navbar
+        //ugh i am tire
+
+        //i superlike my girlfriend
 
       }
     }
@@ -63,20 +68,24 @@ function getStores(navElement)
 
 
 
-function createStoreDiv (obj)
+function createStoreButton (obj)
 {
-  const myStoreDiv = document.createElement('div')
-  const myStores = document.getElementById('stores')
-  myStoreDiv.setAttribute(obj, 'id')
-  myStores.appendChild(myStoreDiv)
-  console.log(myStoreDiv)
+  const myStoreButton = document.createElement('button')  //the created button
+  const myStores = document.getElementById('stores')  //the container for the new buttons
+  myStoreButton.setAttribute(obj, 'id')   //set the id to be the name of the store
+  myStoreButton.textContent = obj;  //set the text to be the name of the store
+  myStores.appendChild(myStoreButton)   //adds the button to the container
+  console.log(myStoreButton)
 
-  createNavBar(myStoreDiv)  
-
-}
+  //maybe i can add to each button a functions that passes the name of the store and something idk bye bye
 
 
-function createNavBar (obj)
+  createNavBar(myStoreButton)  
+
+} 
+
+
+function createNavBar (obj)   //createNavBar va fatto prima di creare il div, perché va inserito li dentro
 {
   
 }
