@@ -1,0 +1,38 @@
+:root{
+    --squareSize: 100%;
+    --squareOpacity: 100%;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container{ 
+    width: 90vh;
+    height: 90vh;
+    background-color: black;
+    display: flex; 
+    align-items: stretch;
+    justify-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container div{ 
+    background-color: wheat;
+    flex: 1 0 var(--squareSize); 
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    opacity: var(--squareOpacity);
+}
