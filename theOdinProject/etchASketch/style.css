@@ -1,6 +1,5 @@
 :root{
     --squareSize: 100%;
-    --squareOpacity: 100%;
 }
 
 
@@ -30,9 +29,5 @@ body{
 
 .container div{ 
     background-color: wheat;
-    flex: 1 0 var(--squareSize); 
-    border: solid;
-    border-color: black;
-    border-width: 1px;
-    opacity: var(--squareOpacity);
+    flex: 1 0 var(--squareSize);
 }

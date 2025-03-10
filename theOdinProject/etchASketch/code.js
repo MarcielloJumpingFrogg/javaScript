@@ -8,6 +8,7 @@ function squareGeneration(sizeOfGrid)
         newSquare.classList.add("square");
         newSquare.style.backgroundColor = colorRandomizer()
         container.appendChild(newSquare);
+
     }
 
     const root = document.documentElement;
@@ -15,6 +16,9 @@ function squareGeneration(sizeOfGrid)
     let sizeOfSquare = 100 / sizeOfGrid;
 
     root.style.setProperty('--squareSize', sizeOfSquare + "%")
+
+
+    reduceOpacity() //need to be somewhere where it will be loaded after a new generatrion of square is completed and at beginning
 }
 
 function colorRandomizer()
@@ -26,23 +30,49 @@ function colorRandomizer()
 
     return(rgb)
 }
+let defaultValue = 16;
 
-squareGeneration(6);    //devo far chiedere all'uttente
+squareGeneration(defaultValue);
+//i like u
 
-const square = document.querySelector(".square");
+function reduceOpacity()
+{
+    const square = document.querySelectorAll(".square");
 
-square.addEventListener("onmouseover", console.log("ciao"))
+for (let i = 0; i < square.length; i++)
+{
+    square[i].addEventListener("mouseover", () => { // on mouse over
+        console.log("ciao")
+        let test = window.getComputedStyle(square[i]).getPropertyValue("opacity")
+        test =  Number(test)
+        let numVal = test - 0.1
+        numVal = String(numVal)
+        square[i].style.opacity = numVal
+    })
 
-
-function reduceOpacity(square)
-{ 
-    const root = document.documentElement;
-    root.style.setProperty("nome della variabile," , "in cosa cambiarlo")
+} 
 }
 
 
+const generate = document.getElementById("generate");
 
+generate.onclick = function()
+{
+    let sizeOfGrid = window.prompt("Size of the square", defaultValue)
+    if (sizeOfGrid > 100)
+    {
+        alert("Cannot load a square that big, try with 100 or less")
+    }
+    else
+        if (sizeOfGrid != null && sizeOfGrid != "")
+        {
+            defaultValue = sizeOfGrid
+            const container = document.getElementById("container");
 
+            container.innerHTML = ''
+            squareGeneration(sizeOfGrid)
+        }
+}
 
 /* 
 
