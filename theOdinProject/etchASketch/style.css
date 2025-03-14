@@ -28,6 +28,5 @@ body{
 }
 
 .container div{ 
-    background-color: wheat;
     flex: 1 0 var(--squareSize);
 }
