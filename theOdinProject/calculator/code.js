@@ -1,7 +1,28 @@
-let numbers = document.querySelectorAll(".num")
-console.log(numbers[0].innerText) 
+let btn = document.querySelectorAll(".num");
 
-for ( let i = 0; i < numbers.length; i++)
+let num = ['', ''];
+let order = 0;
+let point = false;
+
+btn.forEach(element => {
+    element.onclick = function() {
+        if(point == false)
+        {
+            write(element)
+            if(element.innerText == '.')
+                point == true
+            console.log(point)
+        }    
+        if((point == true) && (element != '.'))
+        {
+            write(element)
+        }
+
+    }
+}); 
+
+function write(n)
 {
-    numbers[i].addEventListener('click', console.log("works?"))
+    num[order] += (n.innerText) 
+    console.log(num[order])
 }
