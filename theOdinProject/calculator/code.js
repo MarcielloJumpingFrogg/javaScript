@@ -1,21 +1,44 @@
-let btn = document.querySelectorAll(".num");
+let btn = document.querySelectorAll(".num"); 
+const opBtn = document.querySelectorAll(".operator");
 
-let num = ['', ''];
+
+let input = ['', ''];
 let order = 0;
 let point = false;
 
-btn.forEach(element => {
+let number = [ , ];
+
+/* 
+const operation = {
+    '+': lambda x, y: x + y, 
+    '-': (a, b) => a - b,
+} */
+
+function ope(sign, num1, num2)
+{
+    console.log(sign)
+    if(sign == '+')
+    {
+        console.log(num1 + num2)
+        return num1 + num2;
+    }
+}
+
+
+btn.forEach(element => { 
     element.onclick = function() {
         if(point == false)
-        {
+        { 
             write(element)
             if(element.innerText == '.')
-                point == true
-            console.log(point)
+                point = true 
         }    
-        if((point == true) && (element != '.'))
-        {
-            write(element)
+        else{
+            if((point == true) && (element != '.'))
+            {
+                write(element)
+            }
+
         }
 
     }
@@ -23,6 +46,57 @@ btn.forEach(element => {
 
 function write(n)
 {
-    num[order] += (n.innerText) 
-    console.log(num[order])
+    input[order] += (n.innerText) 
+    console.log(input)
 }
+
+//close deve essere attivato da: +; /; -; *; e =
+function close()
+{
+    number[order] = Number(input[order])
+    console.log(input)
+    console.log(number)
+}
+
+
+opBtn.forEach(element => {
+    element.addEventListener("click", function() 
+    {
+        let currentOperator = '';
+        close()
+        if(order == 0)
+        {
+            order++;
+            currentOperator = element.innerText;
+        }
+        else
+        {
+            if(order == 1)
+            {
+                console.log(currentOperator)
+                number[0] = ope(currentOperator, number[0], number[1])
+                number[1] = undefined;
+                currentOperator = element.innerText
+            }
+            
+        }
+
+        
+    })
+});
+
+
+// need to make it repeatable for all the signs 
+
+/* 
+
+sum.addEventListener("click", function () 
+{
+    close() 
+    if (order == 0)
+    {
+        order++; 
+    } 
+})
+
+ */
