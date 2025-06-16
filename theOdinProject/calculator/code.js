@@ -16,11 +16,31 @@ const operation = {
 
 function ope(sign, num1, num2)
 {
-    console.log(sign)
+    let number1 = Number(num1)
+    let number2 = Number(num2)
     if(sign == '+')
+    { 
+        return number1 + number2;
+    }
+    if(sign == '-')
     {
-        console.log(num1 + num2)
-        return num1 + num2;
+        return number1 - number2;
+    }
+    if(sign == '*')
+    {
+        return number1 * number2;
+    }
+    if(sign == '/')
+    {
+        if(number2 == 0)
+        {
+            alert("Can't divide by 0");
+            return number1;
+        }
+        else
+        {
+            return number1 / number2;
+        }
     }
 }
 
@@ -29,13 +49,18 @@ btn.forEach(element => {
     element.onclick = function() {
         if(point == false)
         { 
-            write(element)
             if(element.innerText == '.')
-                point = true 
+            {
+                point = true
+                if(input[order][0] == undefined)
+                    input[order] = 0;
+            }    
+
+            write(element)
         }    
         else{
-            if((point == true) && (element != '.'))
-            {
+            if(element.innerText != '.')
+            { 
                 write(element)
             }
 
@@ -47,38 +72,28 @@ btn.forEach(element => {
 function write(n)
 {
     input[order] += (n.innerText) 
-    console.log(input)
 }
 
-//close deve essere attivato da: +; /; -; *; e =
-function close()
-{
-    number[order] = Number(input[order])
-    console.log(input)
-    console.log(number)
-}
 
+
+let currentOperator = '';
 
 opBtn.forEach(element => {
     element.addEventListener("click", function() 
-    {
-        let currentOperator = '';
-        close()
+    { 
+
+        if(order == 1)
+        {
+            input[0] = String(ope(currentOperator, input[0], input[1]))
+            input[1] = ''
+            console.log(input)
+            currentOperator = element.innerText
+        }
+            
         if(order == 0)
         {
-            order++;
+            order++; 
             currentOperator = element.innerText;
-        }
-        else
-        {
-            if(order == 1)
-            {
-                console.log(currentOperator)
-                number[0] = ope(currentOperator, number[0], number[1])
-                number[1] = undefined;
-                currentOperator = element.innerText
-            }
-            
         }
 
         
