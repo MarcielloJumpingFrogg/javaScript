@@ -39,7 +39,6 @@ form.addEventListener('submit', (e) => {        // takes the input inside the fo
 
     /* console.log(Object.values(newBook)[3]) */
     const key = Object.keys(newBook)[3];
-    console.log(key)
     if (newBook[key] === 'on')
     { 
         newBook[key] = true; 
@@ -92,15 +91,54 @@ function construct()
         const children = lib.querySelectorAll('.book')[counter].children;   //selects the right book from the library
 
         Object.keys(children).forEach(e => {        //for each 'key' (=title, author...) add to the innertext the actual value of the book
-            children[e].innerText += Object.values(element)[e]
+            if(children[e].innerHTML == `Read:&nbsp;`)      //creates and assigns the correct value for the checkbox "read: "
+            {
+                const check = document.createElement('INPUT')
+                check.setAttribute('type', 'checkbox')
+                check.classList.add('checkbox')
+
+                if(Object.values(element)[e])
+                {
+                    check.checked = true;
+                }
+                else
+                {
+                    check.checked = false;
+                }
+                children[e].appendChild(check);
+            }
+            else
+            {
+                children[e].innerText += Object.values(element)[e] 
+            } 
+            library[counter].id = generateId();
+            console.log(library)
         })
 
         counter ++;
-    }
-
-    library.forEach(element => { 
+    } 
 
 
+function generateId()
+{
+    let uuid = self.crypto.randomUUID()
+    console.log('uuid = ' + uuid)
+    return uuid;
+}
+
+
+
+
+
+let checkboxes = document.querySelectorAll('.checkbox')
+console.log(checkboxes[0].parentNode.parentElement)
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', e => {
+        const test = checkbox.closest('.library')
+        console.log('funziona ' + this )
+    })
+});
     
     
-});}
+}
