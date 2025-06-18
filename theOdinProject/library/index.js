@@ -60,6 +60,26 @@ function camps(text)
     return camp;
 }
 
+
+function generateId(book)
+{
+    let uuid = self.crypto.randomUUID() 
+
+    const id = document.createElement('p')
+    id.classList.add('hide')
+    id.classList.add('id')
+
+    id.textContent = uuid 
+    
+    book.appendChild(id)
+
+    
+    
+    return uuid;
+}
+
+let counter = 0;
+
 function generateBook()
 { 
 
@@ -72,25 +92,22 @@ function generateBook()
     book.appendChild(camps('Pages'))
     book.appendChild(camps('Read'))
 
+    library[counter].id = generateId(book)      //creates a unique id for each book 
+
     return book;
 }
 
-let counter = 0;
-construct()
-function construct()
+
+
+
+
+
+
+
+
+function fillSpace(children, element, counter)
 {
-    while(counter < library.length)
-    { 
-        let element = library[counter] 
-
-        const lib = document.getElementById('library')  //library class from html
-        
-        lib.appendChild(generateBook())     //generates the blank spaces for title, author ecc...
-        
-
-        const children = lib.querySelectorAll('.book')[counter].children;   //selects the right book from the library
-
-        Object.keys(children).forEach(e => {        //for each 'key' (=title, author...) add to the innertext the actual value of the book
+    Object.keys(children).forEach(e => {        //for each 'key' (=title, author...) add to the innertext the actual value of the book
             if(children[e].innerHTML == `Read:&nbsp;`)      //creates and assigns the correct value for the checkbox "read: "
             {
                 const check = document.createElement('INPUT')
@@ -111,32 +128,84 @@ function construct()
             {
                 children[e].innerText += Object.values(element)[e] 
             } 
-            library[counter].id = generateId();
-            console.log(library)
         })
+}
+
+
+construct()
+function construct()
+{
+    while(counter < library.length)
+    { 
+        let element = library[counter] 
+
+        const lib = document.getElementById('library')  //library class from html
+        
+        lib.appendChild(generateBook())     //generates the blank spaces for title, author ecc...
+        
+
+        const children = lib.querySelectorAll('.book')[counter].children;   //selects the right book from the library
+
+        fillSpace(children, element, counter)
 
         counter ++;
+
     } 
 
+/* 
+        ora devo:
+            fare in modo di riconoscere quale "library.element" sta venendo cambiato lo status ri "read"
+                possibile soluzione: assegnare ad ogni libro un p con classe hidden, grazie al quale risalire al libro 
+        
+            immagini(?)
 
-function generateId()
-{
-    let uuid = self.crypto.randomUUID()
-    console.log('uuid = ' + uuid)
-    return uuid;
-}
+            altre robe i guess
+*/
+
+        const test = document.getElementsByClassName('hide')
+        console.log( 'id '+ test[0].textContent)
+
+
 
 
 
 
 
 let checkboxes = document.querySelectorAll('.checkbox')
-console.log(checkboxes[0].parentNode.parentElement)
+//console.log(checkboxes[0].parentNode.parentElement)
 
-checkboxes.forEach(checkbox => {
+checkboxes.forEach(checkbox => {        //event listener per ogni checkbox
+    let p = checkbox.parentElement.parentElement
+    
+
+
     checkbox.addEventListener('change', e => {
-        const test = checkbox.closest('.library')
-        console.log('funziona ' + this )
+        let siblings = Array.from(p.children)
+
+    let recoveredId
+    //console.log(siblings[0].classList.contains('id'))
+    
+
+    for(let i =0; i < siblings.length; i++)
+    {
+        if( siblings[i].classList.contains('id'))
+        {
+            console.log(siblings[i].textContent)
+            recoveredId = siblings[i].innerText
+            console.log(library[0].id)
+            console.log(recoveredId)
+        }
+    }
+
+
+    for(let i = 1; i < library.length; i++)
+    {
+        if(library[i - 1].id == recoveredId) 
+        {
+            
+            console.log('found')
+        }
+    }
     })
 });
     

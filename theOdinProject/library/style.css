@@ -90,3 +90,8 @@ form input{
     width: var(--width); 
     margin: 10px;
 }
+
+
+.hide{
+    display: none;
+}
