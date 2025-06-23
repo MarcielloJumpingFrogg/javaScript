@@ -63,16 +63,13 @@ function camps(text)
 
 function generateId(book)
 {
-    let uuid = self.crypto.randomUUID() 
+    const uuid = self.crypto.randomUUID() 
 
     const id = document.createElement('p')
     id.classList.add('hide')
     id.classList.add('id')
-
     id.textContent = uuid 
-    
     book.appendChild(id)
-
     
     
     return uuid;
@@ -126,7 +123,11 @@ function fillSpace(children, element, counter)
             }
             else
             {
-                children[e].innerText += Object.values(element)[e] 
+                if(!(children[e].classList.contains('id')))
+                {
+                    children[e].innerText += Object.values(element)[e] 
+                }
+                
             } 
         })
 }
@@ -163,10 +164,27 @@ function construct()
 */
 
         const test = document.getElementsByClassName('hide')
-        console.log( 'id '+ test[0].textContent)
+        //console.log( 'id '+ test[0].textContent)
 
 
+function swtichStatus(recoveredId)
+{
+    for(let i = 0; i < library.length; i++)
+    {
+        if(library[i].id == recoveredId) 
+        {
+            
+            if(library[i].read)
+            {
+                library[i].read = false
+            }
+            else{
+                library[i].read = true
+            }
 
+        }
+    }
+}
 
 
 
@@ -190,24 +208,24 @@ checkboxes.forEach(checkbox => {        //event listener per ogni checkbox
     {
         if( siblings[i].classList.contains('id'))
         {
-            console.log(siblings[i].textContent)
             recoveredId = siblings[i].innerText
-            console.log(library[0].id)
-            console.log(recoveredId)
-        }
-    }
 
-
-    for(let i = 1; i < library.length; i++)
-    {
-        if(library[i - 1].id == recoveredId) 
-        {
-            
-            console.log('found')
         }
-    }
+    } 
+
+    swtichStatus(recoveredId)
+
     })
 });
     
     
+}   
+
+
+const bookButton= document.getElementById('bookTab')
+
+const booktab = document.getElementById('newBook')
+
+bookButton.onclick = function() {
+    booktab.classList.toggle('hide')
 }
